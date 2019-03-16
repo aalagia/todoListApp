@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
+import { registerUser } from "../actions/userFunctions";
 
-class User extends Component {
-    constructor(){
-        super();
+
+export default class User extends Component {
+    constructor(props){
+        super(props);
         this.state = {
-            username:""
+            username:"",
+            redirect : false
         }
+        this.onSubmit = this.onSubmit.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
+
     onChange = e =>{
         this.setState({[e.target.id]: e.target.value});    
     }
     onSubmit = e =>{
         e.preventDefault();
-        const userData = {
-            username:this.state.username
-        };
-        console.log(userData);
+        this.setState({username:this.state.username, redirect : true});
+       
+        registerUser(this.state.username).then(() => {
+           
+          });
+        this.props.history.push('/home/'+this.state.username);
     }
     render() {
         return (
@@ -31,9 +39,6 @@ class User extends Component {
                             
                             />
                 </div>
-                
-
-
                 <div className="form-group">
                     <input type="submit" value="Create User" className="btn btn-primary" />
                 </div>
@@ -43,4 +48,3 @@ class User extends Component {
     }
 }
 
-export default User;
