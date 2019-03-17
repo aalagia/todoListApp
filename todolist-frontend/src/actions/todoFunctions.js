@@ -2,30 +2,31 @@ import axios from "axios";
 
 export const createTodo = (todo) => {
     return axios
-      .post("/api/todos/add",  todo,
+      .post("http://localhost:5000/api/todos/add",  todo,
       {
         headers: { "Content-Type": "application/json" }
       })
-      .then(res => {
- 
-        }) 
 
   };
 
 
 
   export const listTodo = (username) => {
-    return axios.get('/api/todos/'+ username)
+    return axios.get('http://localhost:5000/api/todos/'+ username)
     
   };
 
   export const singleTodo = (todoId) => {
-    return axios.get('/api/todos/todo/'+ todoId)
+    return axios.get('http://localhost:5000/api/todos/todo/'+ todoId,
+    )
     
   };
 
   export const modifyTodo = (todoId, todo) => {
-    return axios.put('/api/todos/'+ todoId, todo)
+    return axios.put('http://localhost:5000/api/todos/'+ todoId, todo,
+    {
+      headers: { "Content-Type": "application/json" }
+    })
     
   };
 

@@ -20,8 +20,8 @@ export default class User extends Component {
         e.preventDefault();
         this.setState({username:this.state.username, redirect : true});
        
-        registerUser(this.state.username).then(() => {
-           
+        registerUser(this.state.username).then(res => {
+            console.log(res.data);
           });
         this.props.history.push('/home/'+this.state.username);
     }

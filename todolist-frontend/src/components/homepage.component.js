@@ -25,8 +25,7 @@ class Homepage extends Component {
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
 
-            <Link to="/" className="navbar-brand">MERN-Stack Todo App</Link>
-            <h1>{username}</h1>
+            <Link to="/" className="navbar-brand">TodoList App - {username}</Link>
             <div className="collpase navbar-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">

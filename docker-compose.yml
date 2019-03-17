@@ -1,12 +1,22 @@
-
-version: '3'
+version: '2'
 services:
-
+  mongodb:
+    image: "mongo"
+    ports:
+     - "27017:27017"
+  backend:
+    build: ./todolist-backend/
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./todolist-backend:/usr/src/app
+    depends_on:
+      - mongodb
   frontend:
-    container_name: frontend
-    image: react-app
     build: ./todolist-frontend/
-    command: npm start
     ports:
       - "3000:3000"
-    
+    volumes:
+      - ./todolist-frontend:/usr/src/app
+    depends_on:
+      - backend

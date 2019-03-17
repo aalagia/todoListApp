@@ -41,8 +41,8 @@ export default class CreateTodo extends Component {
             todo_completed: this.state.todo_completed
         };
 
-        createTodo(newTodo).then(() => {
-           
+        createTodo(newTodo).then((res) => {
+            console.log(res.data);
         });
 
         

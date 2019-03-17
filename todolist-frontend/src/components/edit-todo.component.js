@@ -59,9 +59,10 @@ export default class EditTodo extends Component {
         };
         console.log(obj);
         modifyTodo(this.props.match.params.id, obj)
-            .then(res => console.log(res.data));
+            .then(res => {console.log(res.data);
+                         this.props.history.push('/list/'+ this.state.username);
+            });
         
-        this.props.history.push('/list/'+ this.state.username);
     }
     render() {
         return (
