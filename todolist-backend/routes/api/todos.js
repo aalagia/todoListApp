@@ -3,7 +3,7 @@ const Todo = require("../../models/Todo");
 var express = require("express");
 var router = express.Router();
 
-// @route GET api/todos
+// @route GET api/todos/:username
 // @desc Todos
 // @access Public
 router.get('/:username', (req, res) =>  {
@@ -15,7 +15,7 @@ router.get('/:username', (req, res) =>  {
     
 });
 
-// @route GET api/single todo
+// @route GET api/todo/:id todo
 // @desc Todo
 // @access Public
 router.get('/todo/:id', (req, res) =>  {
@@ -45,7 +45,7 @@ router.post('/add', (req, res) =>  {
     
 });
 
-// @route PUT api/modify
+// @route PUT api/:id
 // @desc modify Todo
 // @access Public
 router.put('/:id', (req, res) =>  {
