@@ -23,3 +23,6 @@ To run this project follow these steps
 - GET api/todo/:id (Return a single todo)
 - POST api/add (create a todo for the user)
 - PUT api/:id (modify todo)
+
+# Test
+The tests was excuted with POSTMAN. In the folder test_postman is possible to found the json to load in POSTMAN application
